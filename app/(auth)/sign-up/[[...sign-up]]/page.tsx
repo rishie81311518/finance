@@ -1,5 +1,7 @@
 import { SignUp, ClerkLoaded, ClerkLoading } from '@clerk/nextjs'
 import { Loader2 } from 'lucide-react'
+import Image from "next/image"
+import logo from "../public/logo.svg"
 
 
 export default function Page() {
@@ -22,6 +24,9 @@ export default function Page() {
         </ClerkLoading>
     </div>
 
+    </div>
+    <div className='h-full bg-blue-600 hidden lg:flex items-center justify-center'>
+     <Image src={logo} height={100} width={100} alt="Logo"/>
     </div>
     </div>
 
