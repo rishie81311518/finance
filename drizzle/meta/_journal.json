@@ -1,0 +1,20 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1729656481891,
+      "tag": "0000_powerful_frog_thor",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1729657493372,
+      "tag": "0001_lovely_scream",
+      "breakpoints": true
+    }
+  ]
+}
