@@ -5,18 +5,19 @@ import * as React from "react";
 import {
   ColumnDef,
   ColumnFiltersState,
-  SortingState,
   Row,
+  SortingState,
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
-} from "@tanstack/react-table"
+} from "@tanstack/react-table";
 
-import { Input } from "@/components/ui/input"
+import { useConfirm } from "@/hooks/use-confirm";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 import {
   Table,
@@ -25,7 +26,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
+} from "@/components/ui/table";
 import { Trash } from "lucide-react";
 
 interface DataTableProps<TData, TValue> {
@@ -44,11 +45,17 @@ filterKey,
   disabled,
 }: DataTableProps<TData, TValue>) {
 
+  const [ConfirmDialog, confirm] =useConfirm(
+    "Are your sure?",
+    "You are about to perform a bulk delete."
+   )
+
  const [sorting, setSorting] = React.useState<SortingState>([])
  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
         []
       )
    const [rowSelection, setRowSelection] = React.useState({}) 
+  
 
   const table = useReactTable({
     data,
@@ -69,6 +76,7 @@ filterKey,
 
   return (
     <div>
+      <ConfirmDialog />
     <div className="rounded-md border">
         <div className="flex items-center py-4">
         <Input
@@ -85,6 +93,13 @@ filterKey,
           size="sm"
           variant="outline"
           className="ml-auto font-normal text-xs"
+          onClick={ async () => {
+            const ok = await confirm();
+          
+            if (ok){
+           onDelete(table.getFilteredSelectedRowModel().rows)
+            table.resetRowSelection();
+          }}}
           >
             <Trash 
             className="size-4 mr-2"
