@@ -1,0 +1,34 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1729656481891,
+      "tag": "0000_powerful_frog_thor",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1729657493372,
+      "tag": "0001_lovely_scream",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1729997675334,
+      "tag": "0002_blue_mac_gargan",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1730014000580,
+      "tag": "0003_sparkling_hellcat",
+      "breakpoints": true
+    }
+  ]
+}
